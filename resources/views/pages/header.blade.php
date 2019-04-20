@@ -1,4 +1,8 @@
 <header class="header-style-1">
+		<?php
+		$data = Session::get('customer_id');
+		$data_shipping_id = Session::get('shiping_id');
+		?>
 
 	<!-- ============================================== TOP MENU ============================================== -->
 <div class="top-bar animate-dropdown">
@@ -6,12 +10,17 @@
 		<div class="header-top-inner">
 			<div class="cnt-account">
 				<ul class="list-unstyled">
-					<li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
 
-					@if( Cart::count() > 0)
+					@if($data != NULL )
+					<li><a href="{{ URL::to('/account') }}"><i class="icon fa fa-user"></i>My Account</a></li>
+					@else 
+					<li><a href="{{ URL::to('/login/checkout') }}"><i class="icon fa fa-user"></i>My Account</a></li>
+					@endif
+
+					@if( $data == NULL)
 					<li><a href="{{ URL::to('/login/checkout') }}"><i class="icon fa fa-heart"></i>  Wishlist</a></li>
 					@else 
-					<li><a href="{{ URL::to('/wishlist') }}"><i class="icon fa fa-heart"></i> Wishlist</a></li>
+					<li><a href="{{ URL::to('/show/wishlist') }}"><i class="icon fa fa-heart"></i> Wishlist</a></li>
 					@endif 
 
 					<li><a href="{{ URL::to('/show/cart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>

@@ -80,3 +80,10 @@ Route::post('/add/sub/menu', 'SubMenuController@storemenu');
 Route::get('/show/wishlist', 'WishlistController@view');
 
 Route::post('/charge', 'StripePaymentController@stripePost');
+
+Route::get('/account', 'CustomerAcountController@index');
+
+//new wislist
+Route::post('/cart/switch/To/SaveFor/Later', 'CartWishListController@switchToSaveForLater');
+
+Route::get('/delete/wishlist/prodotucs/{id}', 'CartWishListController@destroy');

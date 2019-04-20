@@ -17,11 +17,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                        @foreach ( Cart::instance('saveForLater')->content() as $item)
+                       
                    
                     <tr>
-                        <td class="col-md-2"><img src="assets/images/products/p2.jpg" alt="phoro"></td>
+                    <td class="col-md-2"><img src="{{ URL::asset($item->options->images)}}" alt="phoro"></td>
                         <td class="col-md-7">
-                            <div class="product-name"><a href="#">Floral Print Buttoned</a></div>
+                        <div class="product-name"><a href="#">{{ $item->name }}</a></div>
                             <div class="rating">
                                 <i class="fa fa-star rate"></i>
                                 <i class="fa fa-star rate"></i>
@@ -31,7 +33,7 @@
                                 <span class="review">( 06 Reviews )</span>
                             </div>
                             <div class="price">
-                                $450.00
+                                    {{ $item->price }}
                                 <span>$900.00</span>
                             </div>
                         </td>
@@ -39,9 +41,10 @@
                             <a href="#" class="btn-upper btn btn-info">Add to cart</a>
                         </td>
                         <td class="col-md-1 close-btn">
-                            <a href="#" class=""><i class="fa fa-times"></i></a>
+                            <a href="{{ URL::to('/delete/wishlist/prodotucs/'. $item->rowId) }}" class=""><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

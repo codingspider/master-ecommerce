@@ -115,13 +115,16 @@
 											<span class="price">৳ {{ $products_details->price }}</span>
 										</div>
 									</div>
-
+								
 									<div class="col-sm-6">
 										<div class="favorite-button m-t-10">
-										<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="{{ URL::to('/wishlist/view/'.$products_details->id)}}">
-											    <i class="fa fa-heart"></i>
-											</a>
-											
+												<form action="{{ URL::to('/cart/switch/To/SaveFor/Later') }}" method="POST">
+														{{ csrf_field() }}
+
+														<input type="hidden" name="rowId" value="{{ $products_details->id }}">
+						
+														<button class="btn btn-info" type="submit" class="cart-options">Save for Later</button>
+													</form>
 										</div>
 									</div>
 

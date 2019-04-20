@@ -372,7 +372,7 @@
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">{{ $item->name }}</a></h3>
+                          <h3 class="name"><a href="{{ URL::to('/products/details/'. $item->id) }}">{{ $item->name }}</a></h3>
                           <div class="rating rateit-small"></div>
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> ৳{{ $item->price }}		</span> <span class="price-before-discount">$ 800</span> </div>

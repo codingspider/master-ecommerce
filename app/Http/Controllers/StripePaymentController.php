@@ -41,7 +41,7 @@ class StripePaymentController extends Controller
         $odata['shiping_id'] = Session::get('shiping_id');
         $odata['payment_id'] = $payment_id;
         $odata['order_total'] = Cart::total();
-        $odata['order_status'] = 'pending';
+        $odata['order_status'] = 'active';
         $odata['product_id'] =$v_contents->id;
 
         $order_id = DB::table('orders')
